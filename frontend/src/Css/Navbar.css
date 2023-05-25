@@ -1,0 +1,103 @@
+img{
+  width: 10%;
+   object-fit: contain; /* taki aspect ratio khraab na ho */
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-around;
+ padding-top: 10px;
+  box-shadow: 1px 5px 5px #e0dcdc;
+ 
+}
+
+ul{
+
+  display: flex;
+  align-items: baseline;
+}
+li{
+  list-style: none; /* dot hatane k liye */
+  padding: 1px 20px;
+}
+li:hover{
+  background-color: red;
+  color: whitesmoke;
+  border-radius: 10px;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+.primaryBtn:first-child{
+  cursor: pointer;
+  font-weight: bolder;
+  padding: 13px 25px;
+  font-size: 0.8rem;
+  border: none;
+  color: white;
+  background: #db183c;
+  border-radius: 15px;
+  margin-left: 20px;
+  transition: all 0.25s ease;
+}
+.primaryBtn:hover{
+  transform: translateY(5px);
+  box-shadow: 0 10px 20px -10px rgba(219, 24, 44, 0.6);
+}
+.primaryBtn:last-child{
+  cursor: cell;
+  font-weight: bolder;
+  padding: 13px 25px;
+  font-size: 0.8rem;
+  border: none;
+  color: white;
+  background: #2c18db;
+  border-radius: 15px;
+  margin-left: 20px;
+  transition: all 0.25s ease;
+}
+.primaryBtn.last-child:hover{
+  transform: translateY(5px);
+  box-shadow: 0 10px 20px -10px rgba(219, 24, 44, 0.6);
+}
+
+.nav-mobile{
+  display: none;
+}
+@media screen and (min-width:801px){
+.navbar{
+  position: fixed;
+  top: 0;
+   z-index: 1000;
+  background-color: #fff;
+  width: 100%;
+ 
+}
+}
+@media screen and (max-width:800px){
+  #insta-logo{
+      display: none;
+  }
+  .nav-menu{
+      display: none;
+  }
+  .nav-mobile{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+   }
+   .navbar{
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0px -2px 5px #fff;
+   }
+   .navbar ul{
+      margin: 0;
+      padding: 10px 0px;
+   }
+}
