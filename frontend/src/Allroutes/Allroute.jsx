@@ -7,13 +7,14 @@ import SellcarPage from '../Pages/SellcarPage'
 import Home from '../Pages/Home'
 import Yourpost from '../Pages/Yourpost'
 import Description from '../Pages/Description'
+import PrivateRoute from '../PrivateRoute'
 
 const Allroute = () => {
   return (
  
    
         <Routes>
-            <Route path='/' element={<Home />}></Route>
+            <Route path='/' element={<PrivateRoute><Home /></PrivateRoute>}></Route>
             <Route path='/signup' element={<Signup />}></Route>
             <Route path='/signin' element={<Signin />}></Route>
             <Route path='/sellyourcar' element={<SellcarPage />}></Route>
