@@ -154,7 +154,7 @@ const initData={
   <Select placeholder='Select color' style={{backgroundColor:"tomato"}} value={paint} name="paint" onChange={handleChange}>
     
     <option value="Red">Red</option>
-    <option value="White">White</option>
+    <option value="white">White</option>
     <option value="Black">Black</option>
     <option value="Blue">Blue</option>
   </Select>

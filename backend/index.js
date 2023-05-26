@@ -3,6 +3,9 @@ const cors=require("cors")
 const { Connection } = require("./Configuration/db")
 const { UserRoute } = require("./Routes/User")
 const { PostCarRoute } = require("./Routes/PostCar")
+const { OemRouter } = require("./Routes/OEM")
+
+
 require("dotenv").config()
 
 const PORT= process.env.PORT || 8000
@@ -21,6 +24,7 @@ app.get("/",(req,res)=>{
 // User Route //
 app.use("/user",UserRoute)
 app.use("/sellcar",PostCarRoute)
+app.use("/oem",OemRouter)
 
 app.listen(PORT, async()=>{
     try{

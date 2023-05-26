@@ -57,7 +57,7 @@ if(!resp){
       setLoading(false)
       dispatch(login(true))
 
-    //  navigate("/")
+      navigate("/")
      }
      console.log("login",x.loginReducer.loginStatus)
       console.log(data)

@@ -192,7 +192,7 @@ const Yourpost = () => {
   return (
     <div className='yourpost_container'>
         <div className="yourpost">
-           
+        <Heading as="h1">Welcome {myName} </Heading>
            <div className='postandsidebar'>
             <div className="sidebar">
             <Heading as="h1">Welcome {myName} </Heading>

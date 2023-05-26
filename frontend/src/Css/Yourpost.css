@@ -9,6 +9,7 @@
     font-size: 20px;
     color: tomato;
     margin-bottom: 10px;
+    display: none;
  }
  .postandsidebar{
     display: flex;
@@ -171,5 +172,94 @@
   .secondbtn:hover {
     background-color: #cf189e;
     color: white;
+  }
+
+  @media screen and (min-width:250px) and (max-width:450px){
+   .yourpost_container{
+      width: 100%;
+      margin-top: 70px;
+   }
+   .yourpost{
+      width: 100%;
+   }
+   .sidebar{
+      width: 0%;
+      /* padding: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    
+     /* margin-top: 10px; */
+     display: none;
+   }
+   .postandsidebar{
+      display: block;
+    
+     width: 90%;
+      border: 1px solid blue;
+   }
+   .yourpost h1{
+     display: block;
+    font-size: 16px;
+    text-align: start;
+    margin-left: 8px;
+   }
+  
+   .posts{
+      width: 100%;
+      padding: 5px;
+     display:grid;
+     grid-template-columns: repeat(1,1fr);
+     grid-template-rows: auto;
+     gap: 10px;
+     text-align: center;
+    
+   
+     
+    
+   }
+   .galary{
+     width: 100%;
+      padding: 5px;
+   
+   }
+   .galary img{
+      width: 90%;
+      height: 100px;
+   }
+   .buttons{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+   .buttons button{
+      margin-top: 10px;
+      width: 60%;
+   }
+   .buttons button:first-child{
+    
+      border-radius: 8px;
+    color: white;
+    background-color: green;
+   }
+   .buttons button:first-child:hover{
+      background-color: rgb(190, 173, 230);
+      color: red;
+      font-weight: bolder;
+      padding: 5px;
+      font-size: 12px;
+   }
+   .buttons button:last-child{
+      cursor: pointer;
+      border-radius: 8px;
+      color: white;
+      background-color: red;
+   }
+   .buttons button:last-child:hover{
+      background-color: rgb(190, 173, 230);
+      color: red;
+      font-weight: bolder;
+      padding: 5px;
+      font-size: 12px;
+   }
+   
   }
   

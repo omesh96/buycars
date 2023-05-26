@@ -6,6 +6,7 @@ import Signin from '../Components/Signin'
 import SellcarPage from '../Pages/SellcarPage'
 import Home from '../Pages/Home'
 import Yourpost from '../Pages/Yourpost'
+import Description from '../Pages/Description'
 
 const Allroute = () => {
   return (
@@ -17,6 +18,7 @@ const Allroute = () => {
             <Route path='/signin' element={<Signin />}></Route>
             <Route path='/sellyourcar' element={<SellcarPage />}></Route>
             <Route path='/yourpost' element={<Yourpost />}></Route>
+            <Route path='/description' element={<Description />}></Route>
         </Routes>
   
   

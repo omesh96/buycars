@@ -3,6 +3,7 @@
  const requireLogin=require("../Middleware/requireLogin.js")
 const { CarModel } = require("../models/PostCarmodel.js")
 const { UserModel } = require("../models/Usermodel.js")
+const { Oem_model } = require("../models/OEMmodal.js")
 
  const PostCarRoute=express.Router()
 
@@ -207,5 +208,121 @@ PostCarRoute.delete("/deletepost/:postId",requireLogin,async(req,res)=>{
         console.log(err)
       });
 })
+
+ // get all the post posted by all the dealers/users //
+  
+ PostCarRoute.get("/getdata",async(req,res)=>{
+    try {
+        let data = await CarModel.find();
+        res.status(200).send(data);
+     } catch (error) {
+        res.send(error.message);
+     }
+ })
+
+  // Get all the post  for a selected company cars
+
+  PostCarRoute.get("/getalldatafilterbycompany/",async(req,res)=>{
+   
+    const {company}=req.query
+    console.log(company)
+    CarModel.find({car_Manufacturer:company})
+    // .populate("postedBy", "_id") 
+     .then((post,err)=>{
+      
+       if(err){
+           return res.status(422).json({error:err})
+       }
+        res.status(200).json({post})
+     })
+     .catch(err=>{
+       return res.status(422).json({error:"User Not Found"})
+     })
+  
+  })
+
+    // Get all the post  for a selected color of cars
+
+  PostCarRoute.get("/getalldatafilterbycolor/",async(req,res)=>{
+   
+    const {color}=req.query
+    console.log(color)
+    CarModel.find({Original_Paint:color})
+    // .populate("postedBy", "_id") 
+     .then((post,err)=>{
+      
+       if(err){
+           return res.status(422).json({error:err})
+       }
+        res.status(200).json({post})
+     })
+     .catch(err=>{
+       return res.status(422).json({error:"User Not Found"})
+     })
+  
+  })
+
+   // Get all the post  in a soted manner for price of car
+
+  PostCarRoute.get("/getalldatasortedbyprice/",async(req,res)=>{
+   
+   
+    const {price}=req.query
+   console.log(price)
+    
+   if(price=="asc"){
+    CarModel.find().sort( { price : 1 } )
+    // .populate("postedBy", "_id") 
+     .then((post,err)=>{
+      
+       if(err){
+           return res.status(422).json({error:err})
+       }
+        res.status(200).json({post})
+     })
+     .catch(err=>{
+       return res.status(422).json({error:"User Not Found"})
+     })
+   } else{
+    CarModel.find().sort( { price : -1 } )
+     // .populate("postedBy", "_id") 
+      .then((post,err)=>{
+       
+        if(err){
+            return res.status(422).json({error:err})
+        }
+         res.status(200).json({post})
+      })
+      .catch(err=>{
+        return res.status(422).json({error:"User Not Found"})
+      })
+   
+   }
+  
+  
+  })
+
+   // get data of a particular post that is by id  for description purpose  //
+   PostCarRoute.get("/getdatabyid/:postId",async(req,res)=>{
+   const postId= req.params.postId
+
+   try{
+    let data=await CarModel.findById({_id:postId})
+    console.log(data)
+    if(data){
+       try{
+        let OemData=await Oem_model.find({$or:[{car_manufacturers:data.car_Manufacturer},{name_of_model:data.model}]})
+        return res.status(201).send({data:data,Oem_data:OemData})
+       }
+       catch(err){
+        console.log(err)
+       }
+    }
+   }
+   catch(err){
+    console.log(err)
+   }
+
+   })
 
   module.exports={PostCarRoute}

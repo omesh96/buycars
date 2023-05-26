@@ -32,7 +32,7 @@ const Navbar = () => {
     return [
       <>
        <Link to="/"> <li>Home</li></Link>
-       <Link to="/aboutus"> <li>About Us</li></Link>
+      
        <Link style={{marginLeft:"20px"}} to="/sellyourcar"> <li>Sell Your Car </li></Link>
        <Link style={{marginLeft:"20px"}} to="/yourpost"> <li>Your Post </li></Link>
        <Link to={""}> 
@@ -66,24 +66,23 @@ const Navbar = () => {
     home
     </span></li></Link>
     
-    
-        <Link to="/profile"> <li><span class="material-symbols-outlined">
-    account_circle
-    </span></li></Link>
-    
-        <Link to="/createpost"> <li><span class="material-symbols-outlined">
+    <Link to="/sellyourcar"> <li><span class="material-symbols-outlined">
     add_box
     </span></li></Link>
     
-        <Link style={{marginLeft:"20px"}} to="/followingpost"> <li><span class="material-symbols-outlined">
-    explore
-    </span> </li></Link>
+        <Link to="/yourpost"> <li><span class="material-symbols-outlined">
+    account_circle
+    </span></li></Link>
+    
+      
+    
+       
         <Link to={""}> 
         <li 
-        //  onClick={()=>setModalOpen(true)}
-        className='primaryBtn'><span class="material-symbols-outlined">
-    logout
-    </span></li>
+        // onClick={()=>setModalOpen(true)}
+         className='primaryBtn'><span class="material-symbols-outlined">
+logout
+</span></li>
         </Link>
        </>
      ]
