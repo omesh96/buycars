@@ -51,9 +51,9 @@ if(!resp){
       }
      else{
       alertSuccess("Signed In Successfully...!")
-      console.log(data)
+      console.log(data.user)
       localStorage.setItem("Buycartoken",data.token)
-      localStorage.setItem("user",JSON.stringify(data.name))
+      localStorage.setItem("user",JSON.stringify(data.user))
       setLoading(false)
       dispatch(login(true))
 

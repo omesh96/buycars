@@ -57,4 +57,6 @@ const CarSchema=mongoose.Schema({
 
 const CarModel=mongoose.model("Marketplace_Inventory",CarSchema)
 
+ // Marketplace_Inventory is the name of table/schema where dealers can add their cars along with image and details 
+
 module.exports={CarModel}

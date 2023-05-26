@@ -80,12 +80,13 @@ const UserRoute=express.Router()
    
             if(!user) return  res.status(404).send({err:"email Not Found..!"})
             if(user){
-             bcrypt.compare(password,user.password,(err,result)=>{  // comapiring hashed password
-                if(result){
+                bcrypt.compare(password,user.password,(err,result)=>{  // comapiring hashed password
+                    if(result){
+                    const {_id,name,email}=user
                     // create jwt token //
                     //   const token=jwt.sign({userId:user._id,name:user.name},process.env.SECRET_KEY,{expiresIn:"24h"})
                     const token=jwt.sign({userId:user._id},process.env.SECRET_KEY)
-                    return res.status(200).send({msg:"Login Successfull...!",name:user.name,token:token})
+                    return res.status(200).send({msg:"Login Successfull...!",user:{_id,name,email},token:token})
                 }   
                 else{
                    return  res.status(404).send({err:"Password Did Not Match"})

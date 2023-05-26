@@ -21,9 +21,11 @@ const Navbar = () => {
 
   const loginStatus=()=>{
     const token=localStorage.getItem("Buycartoken")
-    let userName=localStorage.getItem("user")
+    let userName=JSON.parse(localStorage.getItem("user"))
+    let name;
    if(userName){
-    userName= userName.replace(/['"]+/g, '');
+     name=userName.name
+    name= name.replace(/['"]+/g, '');
    }
     if(allState.loginReducer.loginStatus || token){
         console.log("allState2",allState)
@@ -32,11 +34,12 @@ const Navbar = () => {
        <Link to="/"> <li>Home</li></Link>
        <Link to="/aboutus"> <li>About Us</li></Link>
        <Link style={{marginLeft:"20px"}} to="/sellyourcar"> <li>Sell Your Car </li></Link>
+       <Link style={{marginLeft:"20px"}} to="/yourpost"> <li>Your Post </li></Link>
        <Link to={""}> 
        <button 
         onClick={()=>dispatch(setModalOpen(true))}
        className='primaryBtn'>Log out</button>
-        <button  className='primaryBtn' disabled>{userName}</button>
+        <button  className='primaryBtn' disabled>{name}</button>
        
        
        </Link>
