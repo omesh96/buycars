@@ -42,7 +42,7 @@ const initData={
   // saving post to mongo Db 
   if(url){
     setLoading(true)
-     fetch("http://localhost:8080/sellcar/addcar",{
+     fetch("https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/addcar",{
          method:"POST",
          headers:{
              "Content-Type":"application/json",

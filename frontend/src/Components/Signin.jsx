@@ -32,7 +32,7 @@ if(!resp){
 }
 
  setLoading(true)
-    fetch(`http://localhost:8080/user/login`,{
+    fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/user/login`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

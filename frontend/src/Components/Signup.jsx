@@ -36,7 +36,7 @@ const Signup = () => {
     //console.log({name,email,mobile,password})
     setLoading(true)
     // sending data to server 
-    fetch(`http://localhost:8080/user/signup`,{
+    fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/user/signup`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

@@ -6,6 +6,7 @@ import {RiHome4Fill} from "react-icons/ri";
 import {BiCalendar} from "react-icons/bi"
 import { toast } from 'react-toastify'
 import {Button, FormControl, FormLabel, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, useDisclosure} from "@chakra-ui/react"
+import { useNavigate } from 'react-router-dom';
 
  const initValue={
     company:"",
@@ -24,6 +25,7 @@ const Yourpost = () => {
     const updatedRef=useRef(null)
     const [isAlertOpen, setIsAlertOpen] = useState(false);
     const [loading,setLoading]=useState(true)
+    const navigate=useNavigate()
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -37,7 +39,7 @@ const Yourpost = () => {
     // getting all the post of login user  //
     useEffect(()=>{
         setLoading(true)
-        fetch(`http://localhost:8080/sellcar/getpost/${JSON.parse(localStorage.getItem("user"))._id}`,{
+        fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getpost/${JSON.parse(localStorage.getItem("user"))._id}`,{
          headers:{
            "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
          }
@@ -58,7 +60,7 @@ const Yourpost = () => {
         const handleCompanyData=(query)=>{
             setLoading(true)
             console.log("query",query)
-            fetch(`http://localhost:8080/sellcar/getfilterbycompany/${JSON.parse(localStorage.getItem("user"))._id}?company=${query}`,{
+            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getfilterbycompany/${JSON.parse(localStorage.getItem("user"))._id}?company=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -79,7 +81,7 @@ const Yourpost = () => {
         const handleColorData=(query)=>{
             console.log("query",query)
             setLoading(true)
-            fetch(`http://localhost:8080/sellcar/getfilterbycolor/${JSON.parse(localStorage.getItem("user"))._id}?color=${query}`,{
+            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getfilterbycolor/${JSON.parse(localStorage.getItem("user"))._id}?color=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -98,7 +100,7 @@ const Yourpost = () => {
         const handlePrice=(query)=>{
             console.log("query",query)
             setLoading(true)
-            fetch(`http://localhost:8080/sellcar/getsortbyprice/${JSON.parse(localStorage.getItem("user"))._id}?price=${query}`,{
+            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getsortbyprice/${JSON.parse(localStorage.getItem("user"))._id}?price=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -123,7 +125,7 @@ const Yourpost = () => {
     console.log("updateState",updateState)
     setLoading(true)
       try{
-        const res = await axios.patch(`http://localhost:8080/sellcar/updatedata/${updatedRef.current}`,updateState);
+        const res = await axios.patch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/updatedata/${updatedRef.current}`,updateState);
         console.log(res.data);
         setReset(prev=>prev+1)
         onClose()
@@ -159,7 +161,7 @@ const Yourpost = () => {
   const handleOk = async() => {
     setLoading(true)
     // Perform actions when OK button is clicked
-    fetch(`http://localhost:8080/sellcar/deletepost/${updatedRef.current}`,{
+    fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/deletepost/${updatedRef.current}`,{
             method:"DELETE",
             headers:{
                 "Content-Type":"application/json",
@@ -188,6 +190,22 @@ const Yourpost = () => {
             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div></div>
           
+          }
+          if(myPost.length===0){
+         return  <div className='nopost'>
+          <div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <p class="title">No Post Yet</p>
+            <p>You haven't posted Your Car yet</p>
+        </div>
+        <div class="flip-card-back">
+            <p class="title">Click Below to post now</p>
+            <Button className='backbtn' colorScheme='whatsapp' onClick={()=>navigate("/sellyourcar")}>Post Now</Button>
+        </div>
+    </div>
+</div>
+         </div>
           }
   return (
     <div className='yourpost_container'>

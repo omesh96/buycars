@@ -40,7 +40,7 @@ const Home = () => {
     // getting all the post of login user  //
     useEffect(()=>{
         setLoading(true)
-        fetch(`http://localhost:8080/sellcar/getdata`,{
+        fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getdata`,{
          headers:{
            "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
          }
@@ -61,7 +61,7 @@ const Home = () => {
         const handleCompanyData=(query)=>{
             setLoading(true)
             console.log("query",query)
-            fetch(`http://localhost:8080/sellcar/getalldatafilterbycompany?company=${query}`,{
+            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getalldatafilterbycompany?company=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -82,7 +82,7 @@ const Home = () => {
         const handleColorData=(query)=>{
             console.log("query",query)
             setLoading(true)
-            fetch(`http://localhost:8080/sellcar/getalldatafilterbycolor?color=${query}`,{
+            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getalldatafilterbycolor?color=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
