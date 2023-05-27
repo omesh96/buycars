@@ -32,7 +32,7 @@ if(!resp){
 }
 
  setLoading(true)
-    fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/user/login`,{
+    fetch(`https://average-frog-jodhpurs.cyclic.app/user/login`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

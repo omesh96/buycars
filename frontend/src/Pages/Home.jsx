@@ -40,7 +40,7 @@ const Home = () => {
     // getting all the post of login user  //
     useEffect(()=>{
         setLoading(true)
-        fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getdata`,{
+        fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getdata`,{
          headers:{
            "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
          }
@@ -61,7 +61,7 @@ const Home = () => {
         const handleCompanyData=(query)=>{
             setLoading(true)
             console.log("query",query)
-            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getalldatafilterbycompany?company=${query}`,{
+            fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getalldatafilterbycompany?company=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -82,7 +82,7 @@ const Home = () => {
         const handleColorData=(query)=>{
             console.log("query",query)
             setLoading(true)
-            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getalldatafilterbycolor?color=${query}`,{
+            fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getalldatafilterbycolor?color=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -101,7 +101,7 @@ const Home = () => {
         const handlePrice=(query)=>{
             console.log("query",query)
             setLoading(true)
-            fetch(`http://localhost:8080/sellcar/getalldatasortedbyprice?price=${query}`,{
+            fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getalldatasortedbyprice?price=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -126,7 +126,7 @@ const Home = () => {
     console.log("updateState",updateState)
     setLoading(true)
       try{
-        const res = await axios.patch(`http://localhost:8080/sellcar/updatedata/${updatedRef.current}`,updateState);
+        const res = await axios.patch(`https://average-frog-jodhpurs.cyclic.app/sellcar/updatedata/${updatedRef.current}`,updateState);
         console.log(res.data);
         setReset(prev=>prev+1)
         onClose()
@@ -162,7 +162,7 @@ const Home = () => {
   const handleOk = async() => {
     setLoading(true)
     // Perform actions when OK button is clicked
-    fetch(`http://localhost:8080/sellcar/deletepost/${updatedRef.current}`,{
+    fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/deletepost/${updatedRef.current}`,{
             method:"DELETE",
             headers:{
                 "Content-Type":"application/json",

@@ -12,7 +12,9 @@ const UserRoute=express.Router()
 
  UserRoute.post("/signup",async(req,res)=>{
     const {name,email,password,mobile}=req.body
-   
+    //  res.setHeader("Access-Control-Allow-Origin", "https://jungle-green-hummingbird-wrap.cyclic.app/");
+    //  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+    //  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     
     try{
         // check for existing email //

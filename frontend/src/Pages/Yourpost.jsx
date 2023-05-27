@@ -39,7 +39,7 @@ const Yourpost = () => {
     // getting all the post of login user  //
     useEffect(()=>{
         setLoading(true)
-        fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getpost/${JSON.parse(localStorage.getItem("user"))._id}`,{
+        fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getpost/${JSON.parse(localStorage.getItem("user"))._id}`,{
          headers:{
            "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
          }
@@ -60,7 +60,7 @@ const Yourpost = () => {
         const handleCompanyData=(query)=>{
             setLoading(true)
             console.log("query",query)
-            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getfilterbycompany/${JSON.parse(localStorage.getItem("user"))._id}?company=${query}`,{
+            fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getfilterbycompany/${JSON.parse(localStorage.getItem("user"))._id}?company=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -81,7 +81,7 @@ const Yourpost = () => {
         const handleColorData=(query)=>{
             console.log("query",query)
             setLoading(true)
-            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getfilterbycolor/${JSON.parse(localStorage.getItem("user"))._id}?color=${query}`,{
+            fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getfilterbycolor/${JSON.parse(localStorage.getItem("user"))._id}?color=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -100,7 +100,7 @@ const Yourpost = () => {
         const handlePrice=(query)=>{
             console.log("query",query)
             setLoading(true)
-            fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getsortbyprice/${JSON.parse(localStorage.getItem("user"))._id}?price=${query}`,{
+            fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getsortbyprice/${JSON.parse(localStorage.getItem("user"))._id}?price=${query}`,{
                 headers:{
                   "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
                 }
@@ -125,7 +125,7 @@ const Yourpost = () => {
     console.log("updateState",updateState)
     setLoading(true)
       try{
-        const res = await axios.patch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/updatedata/${updatedRef.current}`,updateState);
+        const res = await axios.patch(`https://average-frog-jodhpurs.cyclic.app/sellcar/updatedata/${updatedRef.current}`,updateState);
         console.log(res.data);
         setReset(prev=>prev+1)
         onClose()
@@ -161,7 +161,7 @@ const Yourpost = () => {
   const handleOk = async() => {
     setLoading(true)
     // Perform actions when OK button is clicked
-    fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/deletepost/${updatedRef.current}`,{
+    fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/deletepost/${updatedRef.current}`,{
             method:"DELETE",
             headers:{
                 "Content-Type":"application/json",

@@ -9,7 +9,7 @@ import { Button, Heading,Text } from '@chakra-ui/react'
     console.log(id)
 
     useEffect(()=>{
-        fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/sellcar/getdatabyid/${id}`,{
+        fetch(`https://average-frog-jodhpurs.cyclic.app/sellcar/getdatabyid/${id}`,{
          headers:{
            "Authorization":"Bearer "+localStorage.getItem("Buycartoken")
          }

@@ -36,10 +36,10 @@ const Signup = () => {
     //console.log({name,email,mobile,password})
     setLoading(true)
     // sending data to server 
-    fetch(`https://jungle-green-hummingbird-wrap.cyclic.app/user/signup`,{
+    fetch(`https://average-frog-jodhpurs.cyclic.app/user/signup`,{
       method:"POST",
       headers:{
-        "Content-Type":"application/json"
+        "Content-Type": "application/json",
       },
       body:JSON.stringify({
         name:name,
