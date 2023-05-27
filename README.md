@@ -62,7 +62,7 @@ For Backend I use Nodejs, MongoDb, Mongoose and Express js. With the help of jso
 # frontend
 for Frontend i use reactjs along with redux for state management , react-router-dom and use normal CSS along with chakra ui
 
-## Deployed link for Backend (on Cyclic):- https://jungle-green-hummingbird-wrap.cyclic.app/ Deployed link for apllication (on Vercel) :- https://buycar-ten.vercel.app/
+## Deployed link for Backend (on Cyclic):- [https://jungle-green-hummingbird-wrap.cyclic.app/](https://average-frog-jodhpurs.cyclic.app/) Deployed link for apllication (on Vercel) :- https://buycar-ten.vercel.app/
 
 
 ## Thank you if you read full documentation. You are awesome as i am. I will meet at the next project. Bye :) gulabi dil.
